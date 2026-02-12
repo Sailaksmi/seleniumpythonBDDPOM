@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite time="14.660778284072876" tests='1' skipped='0'
+name="Checkout" failures='0' errors='0'><testcase time="14.660778284072876" name="Enter_Address_And_Continue_Checkout_--_@1.1_" status="passed"
+         classname="Checkout_Billing_Address" >
+            <system-out>
+            <![CDATA[
+            @scenario.begin
+                @regression   @checkout
+                scenario: Enter address and continue checkout -- @1.1 
+e                given the user is on the Demo Web Shop home page ... passed in 0.001315s 
+                when the user registers with valid details ... passed in 4.394s 
+                when the user logs in with the same registered details ... passed in 2.257s 
+                when the user selects "Books", sorts by "Price: Low to High", and chooses "Health Book" ... passed in 4.204s 
+                when user should accept terms and conditions ... passed in 0.2277s 
+                when user proceeds to checkout ... passed in 1.698s 
+                when user fills all billing details and proceed to checkout "Test", "India", "Other (Non US)", "Hyderabad", "Ameerpet Road", "2nd lane", "500016", "9876543210", "897789786" ... passed in 1.835s 
+                then the user should see the "Log out" link ... passed in 0.04457s 
+@scenario.end
+            ----------------------------------------------------------------------------------------------------
+            ]]>
+            </system-out>
+        </testcase></testsuite>

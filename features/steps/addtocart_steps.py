@@ -1,16 +1,18 @@
 from behave import given,when,then
 from pages.addtocart_page import AddtoCartPage
 
-@given('user navigates to the "{category}" category')
+
+
+@when('user navigates to the "{category}" category')
 def step_select_category(context,category):
     context.addtocart_page = AddtoCartPage(context.driver)
     context.addtocart_page.select_category(category)
 
-@given('user sorts the books by "{sortOrder}"')
+@when('user sorts the books by "{sortOrder}"')
 def step_select_sortorder(context,sortOrder):
     context.addtocart_page.select_sortorder(sortOrder)
 
-@given('user selects the book "{bookName}"')
+@when('user selects the book "{bookName}"')
 def step_select_bookName(context,bookName):
     context.addtocart_page.select_bookName(bookName)
 

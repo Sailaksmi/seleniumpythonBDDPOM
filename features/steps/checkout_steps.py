@@ -1,12 +1,15 @@
 from behave import given, when, then
 
+from pages.checkout_page import CheckoutPage
 
-@given('user should accept terms and conditions')
+
+@when('user should accept terms and conditions')
 def step_accept_terms(context):
+    context.checkout_page = CheckoutPage(context.driver)
     context.checkout_page.accept_terms()
 
 
-@given('user proceeds to checkout')
+@when('user proceeds to checkout')
 def step_click_checkout(context):
     context.checkout_page.click_checkout()
 

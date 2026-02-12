@@ -2,7 +2,7 @@ from selenium import webdriver
 from behave import given,when,then
 from utils.browser_factory import get_browser
 from pages.registration_page import RegistrationPage
-
+import time
 
 
 @when('the user clicks on the "Register" link')
@@ -21,9 +21,15 @@ def step_enter_firstName(context,firstName):
 def step_enter_lastName(context,lastName):
     context.registration_page.enter_last_name(lastName)
 
+
 @when('the user enters email "{email}"')
-def step_enter_email(context,email):
-    context.registration_page.enter_email(email)
+def step_enter_email(context, email):
+    if email == "auto_email":
+        unique_email = f"user_{int(time.time())}@test.com"
+        context.registration_page.enter_email(unique_email)
+    else:
+        context.registration_page.enter_email(email)
+
 
 @when('the user enters password "{password}"')
 def password(context,password):
@@ -45,3 +51,12 @@ def step_registration_text(context):
     # else:
     #     print("registration is not successful")
     assert "Your registration completed" in registrationtext
+
+@then('the user should see the registration failure message')
+def step_registrationfailure_text(context):
+    registrationfailuretext = context.registration_page.get_registration_failure_text()
+    assert "The specified email already exists" in registrationfailuretext
+
+
+
+

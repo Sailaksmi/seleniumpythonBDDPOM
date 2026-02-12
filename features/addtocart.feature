@@ -5,9 +5,11 @@ Feature: Add book to shopping cart after sorting by price
   And add a selected book to the shopping cart
   So that I can purchase the book successfully
 
-
+ @regression @addtocart
 Scenario Outline: Add book to cart after sorting books by low to high price
-  Given user navigates to Login page with "<email>" and "<password>"
+  Given the user is on the Demo Web Shop home page
+  When the user registers with valid details
+  And the user logs in with the same registered details
   And user navigates to the "<category>" category
   And user sorts the books by "<sortOrder>"
   And user selects the book "<bookName>"
@@ -16,5 +18,5 @@ Scenario Outline: Add book to cart after sorting books by low to high price
   And shopping cart count should be updated
 
 Examples:
-  | category | sortOrder           | bookName     | email                     | password     |
-  | Books    |   Price: Low to High  | Health Book  | ananyasingh3@test.com     | Test@123  |
+  | category | sortOrder           | bookName     | 
+  | Books    |   Price: Low to High  | Health Book  | 

@@ -24,3 +24,7 @@ class BasePage:
 
     def get_text(self, locator):
         return self.wait.until(EC.visibility_of_element_located(locator)).text
+    
+    def scroll_into_view(self, locator):
+        element = self.wait.until(EC.visibility_of_element_located(locator))
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", element)

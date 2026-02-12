@@ -14,6 +14,9 @@ class RegistrationPage(BasePage):
     confirm_password_input = (By.ID,"ConfirmPassword")
     register_button = (By.ID,"register-button")
     registration_success_message = (By.CLASS_NAME,"result")
+    registration_unsucess_message = (By.CLASS_NAME,"validation-summary-errors")
+    logout_link = (By.LINK_TEXT, "Log out")
+
 
     def click_registerlink(self):
         self.click(self.register_link)
@@ -45,6 +48,11 @@ class RegistrationPage(BasePage):
     def get_registration_text(self):
         return self.get_text(self.registration_success_message)
     
+    def get_registration_failure_text(self):
+        return self.get_text(self.registration_unsucess_message)
+    
+    def click_logout(self):
+     self.click(self.logout_link)
 
     # def register_user(self,gender,first_name,last_name,email,password,confirm_password):
     #     if gender=="female":

@@ -22,3 +22,13 @@ def step_click_loginbutton(context):
 def step_verify_loginsuccesstext(context):    
     loginmsgtext= context.login_page.get_login_successtext()
     assert "Welcome to the new Tricentis store!" in loginmsgtext
+
+
+@then('an error message should be displayed')
+def step_verify_loginfaliuretext(context):
+    loginfailtext = context.login_page.get_login_unsuccesstext()
+    assert (
+        "Login was unsuccessful" in loginfailtext
+        or "Please enter your email" in loginfailtext
+        or "The credentials provided are incorrect" in loginfailtext
+    )
